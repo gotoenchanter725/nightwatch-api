@@ -1,0 +1,136 @@
+{
+  "name": "nightwatch-api",
+  "version": "3.0.2",
+  "main": "./lib/index.js",
+  "files": [
+    "lib",
+    "types"
+  ],
+  "types": "./lib/index.d.ts",
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "repository": "git@github.com:mucsi96/nightwatch-api.git",
+  "author": "Igor Mucsicska <mucsi_96@yahoo.com>",
+  "license": "MIT",
+  "keywords": [
+    "nightwatch",
+    "selenium",
+    "browser",
+    "automation",
+    "testing",
+    "test"
+  ],
+  "scripts": {
+    "update:dependencies": "ts-node ./scripts/update-dependencies.ts",
+    "clean": "del-cli lib",
+    "build": "tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts\"",
+    "type-check": "tsc --noEmit",
+    "test": "cross-env jest --no-cache",
+    "test:unit": "npm test -- --config jest.unit.config.js",
+    "test:unit:watch": "npm run test:unit -- --watch --coverage",
+    "test:e2e": "cross-env NIGHTWATCH_VERBOSE=true ts-mocha e2e-test/**/*.test.ts --timeout 60000",
+    "test:coverage": "npm test -- --coverage",
+    "test:coveralls": "cat ./coverage/lcov.info | coveralls",
+    "check-webdriver-stopped": "ts-node ./scripts/check-webdriver-stopped.ts",
+    "prepack": "npm run clean && npm run build",
+    "pack-into-examples": "ts-node ./scripts/pack-into-examples.ts",
+    "debug": "npm run test:e2e -- --inspect",
+    "lint": "tslint -p tsconfig.json 'src/**/*.{ts,tsx}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "debug": "^4.3.2",
+    "@types/debug": "^4.1.7"
+  },
+  "peerDependencies": {
+    "nightwatch": "^1.7.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.7",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.14.7",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-typescript": "^7.14.5",
+    "@babel/register": "^7.14.5",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.4.3",
+    "@types/node-fetch": "^2.5.12",
+    "@types/sinon": "^10.0.2",
+    "chai": "^4.3.4",
+    "chromedriver": "^92.0.0",
+    "coveralls": "^3.1.1",
+    "cross-env": "^7.0.3",
+    "del-cli": "^4.0.1",
+    "expect": "^27.0.6",
+    "geckodriver": "^2.0.1",
+    "husky": "^7.0.1",
+    "lodash.omit": "^4.5.0",
+    "mocha": "^9.0.3",
+    "nightwatch": "^1.7.7",
+    "node-fetch": "^2.6.1",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1",
+    "selenium-server": "^3.141.59",
+    "sinon": "^11.1.1",
+    "ts-mocha": "^8.0.0",
+    "ts-node": "^10.1.0",
+    "tslint": "^6.1.2",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.3.5"
+  },
+  "contributors": [
+    {
+      "name": "Igor Muchychka",
+      "url": "https://twitter.com/mucsi96",
+      "avatar": "https://avatars0.githubusercontent.com/u/3163392?v=4"
+    },
+    {
+      "name": "Padmanabha Raju Sagi",
+      "url": "https://spnraju.github.io",
+      "avatar": "https://avatars1.githubusercontent.com/u/33729221?v=4"
+    },
+    {
+      "name": "Jose Then",
+      "url": "https://josethen.com",
+      "avatar": "https://avatars2.githubusercontent.com/u/38862945?v=4"
+    },
+    {
+      "name": "Ricardo Machado",
+      "url": "https://github.com/mAiNiNfEcTiOn",
+      "avatar": "https://avatars1.githubusercontent.com/u/1002056?v=4"
+    },
+    {
+      "name": "Markus Oberlehner",
+      "url": "https://markus.oberlehner.net",
+      "avatar": "https://avatars1.githubusercontent.com/u/6883314?v=4"
+    },
+    {
+      "name": "David Craig",
+      "url": "https://davidcraig.co.nz",
+      "avatar": "https://avatars3.githubusercontent.com/u/878176?v=4"
+    },
+    {
+      "name": "Ken Cheung",
+      "url": "https://github.com/vip30",
+      "avatar": "https://avatars3.githubusercontent.com/u/4260833?v=4"
+    },
+    {
+      "name": "Vishal Bakshi",
+      "url": "https://vishalbakshi.github.io",
+      "avatar": "https://avatars1.githubusercontent.com/u/28925987?v=4"
+    },
+    {
+      "name": "Domenico Gemoli",
+      "url": "https://www.domenicogemoli.com",
+      "avatar": "https://avatars0.githubusercontent.com/u/1260402?v=4"
+    }
+  ]
+}

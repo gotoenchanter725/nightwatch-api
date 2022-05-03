@@ -1,0 +1,15 @@
+{
+  "waitForConditionTimeout": 0,
+  "default": {
+    "myGlobal": 0
+  },
+  "chromeHeadless": {
+    "myGlobal": 1
+  },
+  "chrome": {
+    "myGlobal": 1
+  },
+  "firefox": {
+    "myGlobal": 1
+  }
+}

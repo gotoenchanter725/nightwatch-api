@@ -1,0 +1,29 @@
+{
+  "name": "nightwatch-api-cucumber",
+  "version": "1.0.0",
+  "description": "Demonstration for using Nightwatch API from CucumberJS test runner",
+  "main": "index.js",
+  "scripts": {
+    "test:chrome": "cross-env NIGHTWATCH_ENV=chrome npm test",
+    "test:firefox": "cross-env NIGHTWATCH_ENV=firefox npm test",
+    "test": "mkdirp report && cucumber-js --require-module @babel/register --require cucumber.conf.js --require step-definitions --format node_modules/cucumber-pretty --format json:report/cucumber_report.json",
+    "debug": "cross-env DEBUG=nightwatch-api NIGHTWATCH_ENV=chrome NIGHTWATCH_VERBOSE=true node --inspect ./node_modules/cucumber/bin/cucumber-js --require-module @babel/register --require cucumber.conf.js --require step-definitions --format node_modules/cucumber-pretty"
+  },
+  "repository": "git@github.com:mucsi96/nightwatch-api.git",
+  "author": "Igor Mucsicska <mucsi_96@yahoo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/register": "^7.14.5",
+    "chromedriver": "^92.0.0",
+    "cross-env": "^7.0.3",
+    "cucumber": "^6.0.5",
+    "cucumber-html-reporter": "^5.4.0",
+    "cucumber-pretty": "^6.0.0",
+    "geckodriver": "^2.0.1",
+    "mkdirp": "^1.0.4",
+    "nightwatch": "^1.7.7",
+    "nightwatch-api": "latest"
+  }
+}
